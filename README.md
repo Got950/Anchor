@@ -142,12 +142,17 @@ pairs passed** (both the citing ticket and the cited doc present, with a `via_re
 | Floating-coral ticket matches which known issue? | ticket_105, doc_12 | PASS | **yes** | yes | 0.0333 |
 
 Two `via_reference` cells flipped from `yes` to `no` versus the offline run, and that is an
-improvement rather than a regression: the offline heuristic extractor matched a doc's title
-words anywhere in the text, so `doc_05` ("exports limited to .schematic and .glb", "custom
-style presets", "team workspaces") was credited with four references it never actually makes.
-The real LLM pass extracts none for `doc_05`, so those single-doc questions no longer drag in
-expanded context they never needed. The two questions that genuinely require expansion still
-show `yes`.
+improvement rather than a regression. The offline heuristic matched a doc's title words anywhere
+in its text, so `doc_05` — which merely *mentions* "exports limited to .schematic and .glb",
+"custom style presets" and "team workspaces" while discussing tier limits — was credited with
+four references (`doc_03`, `doc_04`, `doc_08`, `doc_09`) it never actually makes, and `doc_06`
+was credited with `doc_10` for the words "violates content policy". The real LLM pass extracts
+none for either, and both of these questions retrieve `doc_05`/`doc_06` as neighbours, so the
+`yes` was never evidence of useful expansion — it was topical word overlap dressed up as a
+citation. Dropping it means these single-doc questions no longer drag in context they never
+needed. Going the other way, the LLM found a reference the heuristic *missed*: `doc_12`'s
+"API job polling" clause resolves to `doc_09` (API Access) with no shared title words. Higher
+precision and higher recall. The two questions that genuinely require expansion still show `yes`.
 
 **Behavioural accuracy — 8/8, abstention 3/3, with a real LLM configured.**
 
