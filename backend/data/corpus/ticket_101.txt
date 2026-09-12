@@ -1,0 +1,6 @@
+Title: Support Ticket #1042
+Category: Support Ticket
+
+Subject: Generation stuck on "queued" for 20 minutes
+User: My structure has said "queued" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down?
+Resolution: Checked queue health — no outage. User's job was in fact stuck due to a known API polling display bug (see Known Issues #4) where the UI shows stale "queued" status even after completion. Advised user to refresh the Builds tab manually. Build had completed successfully 18 minutes prior. No refund issued since the build itself succeeded.

@@ -1,0 +1,48 @@
+{
+  "credit": "Anchored Coral Block — Craftify assessment asset. Lore ties to Known Issues #2 / ticket_105: the underwater style preset above 128x128x128 generates disconnected floating coral, so this block is 'anchored' with an iron strap.",
+  "texture_size": [16, 16],
+  "textures": {
+    "coral": "craftify:block/anchored_coral",
+    "particle": "craftify:block/anchored_coral"
+  },
+  "elements": [
+    {
+      "name": "coral_body",
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": { "uv": [0, 0, 16, 16], "texture": "#coral" },
+        "east": { "uv": [0, 0, 16, 16], "texture": "#coral" },
+        "south": { "uv": [0, 0, 16, 16], "texture": "#coral" },
+        "west": { "uv": [0, 0, 16, 16], "texture": "#coral" },
+        "up": { "uv": [0, 0, 16, 16], "texture": "#coral" },
+        "down": { "uv": [0, 0, 16, 16], "texture": "#coral" }
+      }
+    },
+    {
+      "name": "iron_strap",
+      "from": [-0.5, 6, -0.5],
+      "to": [16.5, 10, 16.5],
+      "faces": {
+        "north": { "uv": [0, 6, 16, 10], "texture": "#coral" },
+        "east": { "uv": [0, 6, 16, 10], "texture": "#coral" },
+        "south": { "uv": [0, 6, 16, 10], "texture": "#coral" },
+        "west": { "uv": [0, 6, 16, 10], "texture": "#coral" },
+        "up": { "uv": [0, 6, 16, 10], "texture": "#coral" },
+        "down": { "uv": [0, 6, 16, 10], "texture": "#coral" }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [0, 0, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "fixed": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+}

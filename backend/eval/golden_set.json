@@ -1,0 +1,122 @@
+[
+  {
+    "question": "What formats can a finished structure be exported as?",
+    "expected_type": "answer",
+    "expected_answer_contains": ".litematic",
+    "ground_truth": "Structures can be exported as .schematic, .litematic, .glb and .nbt.",
+    "ground_truth_sources": ["doc_04"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "How many generations per day does the Free tier allow and what is its maximum structure size?",
+    "expected_type": "answer",
+    "expected_answer_contains": "10",
+    "ground_truth": "The Free tier allows 10 generations per day with a maximum structure size of 64x64x64 blocks.",
+    "ground_truth_sources": ["doc_05"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "What confidence score causes a build to be tagged review recommended?",
+    "expected_type": "answer",
+    "expected_answer_contains": "0.62",
+    "ground_truth": "A build is tagged review recommended when the generation model's internal confidence score falls below 0.62.",
+    "ground_truth_sources": ["doc_07"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "How do I get an API key and which tier is required?",
+    "expected_type": "answer",
+    "expected_answer_contains": "Studio",
+    "ground_truth": "Studio-tier accounts can request an API key from Account Settings > Developer.",
+    "ground_truth_sources": ["doc_09"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "How many reference builds do I need to upload for a custom style preset?",
+    "expected_type": "answer",
+    "expected_answer_contains": "5",
+    "ground_truth": "Custom style presets require uploading at least 5 reference builds, and the fine-tuning job takes 2-6 hours.",
+    "ground_truth_sources": ["doc_03"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "Which known issue caused the ticket about a generation stuck on queued, and what does that known issue say?",
+    "expected_type": "answer",
+    "expected_answer_contains": "30 seconds",
+    "ground_truth": "Ticket #1042 was caused by Known Issue #4: API job polling can return a stale queued status for up to 30 seconds after a job actually completes. The build had in fact completed.",
+    "ground_truth_sources": ["ticket_101", "doc_12"],
+    "requires_reference_expansion": true
+  },
+  {
+    "question": "The ticket about floating coral chunks matches which known issue, and what workaround does that issue give?",
+    "expected_type": "answer",
+    "expected_answer_contains": "128x128x128",
+    "ground_truth": "Ticket #1097 matches Known Issue #2: the underwater preset above 128x128x128 can generate disconnected floating coral, and the workaround is to regenerate at 128x128x128 or smaller.",
+    "ground_truth_sources": ["ticket_105", "doc_12"],
+    "requires_reference_expansion": true
+  },
+  {
+    "question": "Which support tickets resulted in a refund?",
+    "expected_type": "aggregation",
+    "expected_answer_contains": "ticket_105",
+    "ground_truth": "Only ticket_105 (Support Ticket #1097) received a refund, issued as a goodwill exception.",
+    "ground_truth_sources": ["ticket_105"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "Which ticket was NOT closed as expected behavior?",
+    "expected_type": "aggregation",
+    "expected_answer_contains": "ticket_106",
+    "ground_truth": "ticket_106 (Support Ticket #1103) was escalated to engineering as a potential bug instead of being closed as working as intended.",
+    "ground_truth_sources": ["ticket_106"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "How many tickets were closed as expected behavior?",
+    "expected_type": "aggregation",
+    "expected_answer_contains": "ticket_101",
+    "ground_truth": "Five tickets were closed as expected behavior: ticket_101, ticket_102, ticket_103, ticket_104 and ticket_107.",
+    "ground_truth_sources": ["ticket_101", "ticket_102", "ticket_103", "ticket_104", "ticket_107"],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "How do I install a Kubernetes ingress controller on bare metal?",
+    "expected_type": "abstain",
+    "expected_answer_contains": "ABSTAIN",
+    "ground_truth": "Not covered in the documentation.",
+    "ground_truth_sources": [],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "What uptime SLA does Craftify guarantee on the Studio tier?",
+    "expected_type": "abstain",
+    "expected_answer_contains": "ABSTAIN",
+    "ground_truth": "Not covered in the documentation.",
+    "ground_truth_sources": [],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "Can I pay for my Craftify subscription with PayPal?",
+    "expected_type": "abstain",
+    "expected_answer_contains": "ABSTAIN",
+    "ground_truth": "Not covered in the documentation.",
+    "ground_truth_sources": [],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "File a support ticket about my underwater build generating floating coral, high priority",
+    "expected_type": "tool_call",
+    "expected_tool": "create_support_ticket",
+    "ground_truth": "Calls create_support_ticket with a summary about floating coral and priority high.",
+    "ground_truth_sources": [],
+    "requires_reference_expansion": false
+  },
+  {
+    "question": "Create a ticket",
+    "expected_type": "clarify",
+    "expected_tool": "create_support_ticket",
+    "ground_truth": "Asks for the missing ticket summary and priority instead of calling the tool.",
+    "ground_truth_sources": [],
+    "requires_reference_expansion": false
+  }
+]

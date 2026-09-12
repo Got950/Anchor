@@ -1,0 +1,6 @@
+Title: Support Ticket #1058
+Category: Support Ticket
+
+Subject: Negative prompt ("without windows") not respected
+User: I asked for a castle "without windows" and it still generated windows on two walls.
+Resolution: Explained that negative constraints are honored ~80% of the time per current model limitations (see Prompt Guidelines doc), not guaranteed. This is expected behavior, not a bug. Suggested regenerating or manually editing the exported structure. No credit refund, since this falls under category (4) ambiguous/low-confidence results, not a system failure.

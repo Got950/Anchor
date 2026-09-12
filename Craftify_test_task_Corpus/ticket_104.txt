@@ -1,0 +1,6 @@
+Title: Support Ticket #1089
+Category: Support Ticket
+
+Subject: Charged twice this month
+User: I see two charges on my card this month, was I double billed?
+Resolution: Investigated billing history — user upgraded from Pro to Studio mid-cycle, which triggered an immediate prorated charge in addition to the original Pro renewal earlier that month. This is expected behavior per the upgrade proration policy, not a duplicate charge. Explained the proration breakdown to the user; no refund necessary, ticket resolved as user error/misunderstanding.

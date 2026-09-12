@@ -1,0 +1,4 @@
+Title: Why Generations Fail
+Category: Build Documentation
+
+A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3) transient GPU worker error, which is automatically retried once before surfacing to the user, (4) prompt is too ambiguous for the model to produce a coherent structure, which returns a low-confidence result flagged with a "review recommended" badge rather than a hard failure. Only category (3) failures are eligible for a generation-credit refund; categories (1), (2), and (4) are not refunded.

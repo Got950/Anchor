@@ -1,0 +1,4 @@
+Title: Content Policy for Prompts
+Category: Build Documentation
+
+Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters from films or games) are also rejected, since generated structures could constitute unauthorized derivative works. Prompts referencing generic fantasy or sci-fi tropes (dragons, spaceships, castles, robots) are allowed, since these are not protected as specific IP. Borderline prompts are queued but flagged for a lightweight automated policy re-check before delivery; this adds roughly 5-10 seconds to generation time.

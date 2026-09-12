@@ -1,0 +1,4 @@
+Title: Getting Started with Craftify
+Category: Build Documentation
+
+Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. "medieval stone castle with two towers") into the prompt bar and click Generate. Generation typically takes 15-45 seconds depending on structure complexity and current queue load. Generated structures appear in your Builds tab and can be exported in .schematic, .litematic, or .glb format. New accounts start on the Free tier, which allows 10 generations per day and structures up to 64x64x64 blocks.

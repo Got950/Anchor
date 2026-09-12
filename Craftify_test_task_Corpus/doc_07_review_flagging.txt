@@ -1,0 +1,4 @@
+Title: Review-Recommended Builds
+Category: Build Documentation
+
+When the generation model's internal confidence score falls below 0.62, the resulting build is tagged "review recommended" instead of being auto-delivered. These builds are still generated and consume a generation credit, but are held in a Pending Review state and are not visible in shared galleries until a user manually approves them from the Builds tab. This mechanism exists primarily to catch structurally broken output (floating blocks, disconnected geometry) before it reaches public galleries, not to catch content-policy issues, which are handled at the prompt-filtering stage instead.

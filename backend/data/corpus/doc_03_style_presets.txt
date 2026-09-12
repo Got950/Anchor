@@ -1,0 +1,4 @@
+Title: Style Presets
+Category: Build Documentation
+
+Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax "[style: preset_name]": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater, treehouse, steampunk, and pixel-art. Presets adjust the model's material palette and structural proportions but do not guarantee specific blocks will be used. Custom presets are a Pro-tier feature and require uploading at least 5 reference builds for the style-transfer fine-tuning job, which takes 2-6 hours to complete.

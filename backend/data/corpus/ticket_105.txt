@@ -1,0 +1,6 @@
+Title: Support Ticket #1097
+Category: Support Ticket
+
+Subject: Underwater build has floating coral chunks
+User: My 150x150x150 underwater temple has weird floating coral pieces disconnected from the main structure.
+Resolution: Matches Known Issue #2 — underwater preset above 128x128x128 can produce disconnected coral geometry. Advised regenerating at 128x128x128 or below as a workaround until the fix ships. Issued a generation-credit refund as a goodwill exception, though technically outside the standard refund categories, since this is an acknowledged model bug at that size threshold.

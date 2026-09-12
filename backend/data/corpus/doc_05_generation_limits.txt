@@ -1,0 +1,7 @@
+Title: Generation Limits by Tier
+Category: Build Documentation
+
+Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb.
+Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority queue, all export formats, custom style presets.
+Studio tier ($60/mo): unlimited generations, max structure size 512x512x512 blocks, dedicated GPU queue, API access, team workspaces up to 10 seats.
+Exceeding the daily generation cap returns a 429 error with a reset_at timestamp in the response body. Cap resets at 00:00 UTC, not on a rolling 24-hour window.

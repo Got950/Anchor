@@ -1,0 +1,4 @@
+Title: Team Workspaces (Studio Tier)
+Category: Build Documentation
+
+Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool. Builds generated inside a workspace are owned by the workspace, not the individual member, and remain accessible even if that member is later removed. There is currently no way to transfer a build's ownership from a personal account into a workspace after the fact — it must be regenerated inside the workspace.

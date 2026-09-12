@@ -1,0 +1,6 @@
+Title: Support Ticket #1071
+Category: Support Ticket
+
+Subject: Can't export to Bedrock add-on format
+User: I need this build as a Bedrock add-on, not just .nbt. Is that possible?
+Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc) — it's the top item on the roadmap but has no committed ship date. Recommended .nbt export as the closest available option, with a note that some block states will be auto-substituted on Bedrock due to palette limitations.

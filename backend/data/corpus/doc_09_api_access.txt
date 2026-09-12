@@ -1,0 +1,4 @@
+Title: API Access (Studio Tier)
+Category: Build Documentation
+
+Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET /v1/builds/{id}/export?format=X (download a completed build). The API shares the same daily generation cap as the web app — it is not a separate quota. Rate limit for polling GET /v1/jobs/{id} is 1 request per 2 seconds per job; more frequent polling returns 429.

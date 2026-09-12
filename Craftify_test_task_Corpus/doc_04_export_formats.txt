@@ -1,0 +1,4 @@
+Title: Export Formats and Compatibility
+Category: Build Documentation
+
+Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft, e.g. Blender or web viewers), and .nbt (raw structure block format, works on both Java and Bedrock with caveats — Bedrock does not support all block states used by Craftify's palette, so some blocks will be substituted automatically on Bedrock export). There is currently no native Bedrock add-on export; this is the single most requested feature on our roadmap.

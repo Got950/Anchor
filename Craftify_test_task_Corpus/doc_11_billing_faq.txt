@@ -1,0 +1,4 @@
+Title: Billing FAQ
+Category: Build Documentation
+
+Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is prorated. Refunds are issued only within 7 days of the initial charge and only for the first billing cycle — renewals are not eligible for refunds. Unused generation credits do not roll over month to month and do not have cash value.
