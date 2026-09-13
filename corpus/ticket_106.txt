@@ -1,0 +1,6 @@
+Title: Support Ticket #1103
+Category: Support Ticket
+
+Subject: Team workspace build not visible after member removed
+User: We removed a team member and now their builds are missing from our workspace.
+Resolution: Clarified that per the Team Workspaces doc, builds generated inside a workspace are owned by the workspace and should remain visible after a member is removed. This did not match expected behavior, so escalated to engineering as a potential bug rather than resolving as expected behavior — unlike most tickets in this set, this one was NOT closed as "working as intended."

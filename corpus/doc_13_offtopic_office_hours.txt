@@ -1,0 +1,4 @@
+Title: Office Hours and Community Events
+Category: Build Documentation
+
+Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a "Build of the Week." This is a community engagement feature unrelated to generation mechanics, billing, or exports. Winners receive 30 bonus generation credits, valid for 60 days from the announcement date.

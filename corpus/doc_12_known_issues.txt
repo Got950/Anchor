@@ -1,0 +1,4 @@
+Title: Known Issues (Updated Monthly)
+Category: Build Documentation
+
+Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the "underwater" style preset above 128x128x128 occasionally generate with disconnected floating coral geometry — workaround is to regenerate at a smaller size. (3) Team Workspace generation history can take up to 10 minutes to sync across members after a new build is created; this is expected latency, not a bug. (4) API job polling can return a stale "queued" status for up to 30 seconds after a job actually completes.

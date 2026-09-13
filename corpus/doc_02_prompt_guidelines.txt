@@ -1,0 +1,4 @@
+Title: Writing Effective Prompts
+Category: Build Documentation
+
+The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small, medium, large, or explicit block dimensions), and (4) any notable features (towers, moat, interior rooms). Vague prompts like "cool building" will produce inconsistent results. Prompts longer than 400 characters are truncated. Negative constraints (e.g. "no windows") are supported using the phrase "without X" and are honored in roughly 80% of generations — this is a known limitation, not a bug.

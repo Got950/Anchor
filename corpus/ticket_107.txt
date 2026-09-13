@@ -1,0 +1,6 @@
+Title: Support Ticket #1110
+Category: Support Ticket
+
+Subject: Custom style preset request denied
+User: I uploaded 3 reference builds for a custom style but the option is greyed out.
+Resolution: Explained that custom style presets require a minimum of 5 reference builds (see Style Presets doc), not 3. User had 3 uploaded. Advised uploading 2 more reference builds of the desired style to unlock the fine-tuning job, which then takes 2-6 hours to complete.
