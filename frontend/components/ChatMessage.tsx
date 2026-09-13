@@ -1,31 +1,31 @@
-"use client";
-
-import { useState } from "react";
-import type { Message } from "../app/types";
-import { MAX_RRF } from "../app/types";
+import type { AssistantMessage, Message } from "../app/types";
+import { estimateCostUsd, MAX_RRF } from "../app/types";
 import SourceSnippets from "./SourceSnippets";
 
-const BUBBLE: React.CSSProperties = {
-  borderRadius: 10,
-  padding: "10px 12px",
-  maxWidth: 760,
-  border: "1px solid #2c3446",
-  background: "#111721",
-  lineHeight: 1.5,
-};
-
 function Why({ reasoning }: { reasoning?: string }) {
-  const [open, setOpen] = useState(false);
   if (!reasoning) return null;
   return (
-    <div style={{ marginTop: 8, fontSize: 12 }}>
-      <button
-        onClick={() => setOpen(!open)}
-        style={{ background: "none", border: "none", color: "#64748b", cursor: "pointer", padding: 0, fontSize: 12 }}
-      >
-        {open ? "▾" : "▸"} why this path
-      </button>
-      {open && <div style={{ color: "#94a3b8", marginTop: 4, fontStyle: "italic" }}>{reasoning}</div>}
+    <details className="disclosure">
+      <summary>why this path</summary>
+      <div className="reasoning">{reasoning}</div>
+    </details>
+  );
+}
+
+/** Latency/cost line for answer + tool_call only (abstain/clarify omit it by design). */
+function UsageLine({ msg }: { msg: AssistantMessage }) {
+  if (msg.type !== "answer" && msg.type !== "tool_call") return null;
+  const { usage, latencyMs } = msg;
+  if (!usage || usage.total_tokens <= 0) return null;
+
+  const secs = latencyMs !== undefined ? `~${(latencyMs / 1000).toFixed(1)}s` : null;
+  const tokens = `${usage.total_tokens.toLocaleString("en-US")} tokens`;
+  const cost = `$${estimateCostUsd(usage).toFixed(4)}`;
+  const parts = [secs, tokens, cost].filter(Boolean);
+
+  return (
+    <div className="usage-line" title="Client round-trip · summed prompt+completion tokens · gpt-4.1-mini estimate">
+      {parts.join(" · ")}
     </div>
   );
 }
@@ -33,18 +33,18 @@ function Why({ reasoning }: { reasoning?: string }) {
 export default function ChatMessage({ msg }: { msg: Message }) {
   if (msg.role === "user") {
     return (
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <div style={{ ...BUBBLE, background: "#1d4ed8", borderColor: "#1d4ed8", color: "#fff" }}>{msg.text}</div>
+      <div className="turn">
+        <div className="turn-label">you</div>
+        <div className="turn-body">{msg.text}</div>
       </div>
     );
   }
 
   if (msg.type === "abstain") {
     return (
-      <div>
-        <div style={{ ...BUBBLE, opacity: 0.65, fontStyle: "italic", color: "#94a3b8" }}>
-          Not covered in the documentation.
-        </div>
+      <div className="turn turn--abstain">
+        <div className="turn-label">not covered</div>
+        <div className="turn-body">Not covered in the documentation.</div>
         <Why reasoning={msg.reasoning} />
       </div>
     );
@@ -52,11 +52,9 @@ export default function ChatMessage({ msg }: { msg: Message }) {
 
   if (msg.type === "clarify") {
     return (
-      <div>
-        <div style={{ ...BUBBLE, border: "1px solid #f59e0b", background: "#221a08" }}>
-          <div style={{ fontSize: 11, color: "#fbbf24", marginBottom: 4, letterSpacing: 0.5 }}>NEEDS DETAIL</div>
-          {msg.clarifying_question}
-        </div>
+      <div className="turn turn--clarify">
+        <div className="turn-label">needs detail</div>
+        <div className="turn-body">{msg.clarifying_question}</div>
         <Why reasoning={msg.reasoning} />
       </div>
     );
@@ -64,20 +62,15 @@ export default function ChatMessage({ msg }: { msg: Message }) {
 
   if (msg.type === "tool_call") {
     return (
-      <div>
-        <div style={{ ...BUBBLE, border: "1px solid #22c55e", background: "#08210f" }}>
-          <div style={{ fontSize: 11, color: "#4ade80", marginBottom: 6, letterSpacing: 0.5 }}>
-            TOOL CALL · <code>{msg.tool}</code>
-          </div>
-          <div style={{ fontSize: 12, color: "#cbd5e1" }}>arguments</div>
-          <pre style={{ margin: "2px 0 8px", fontSize: 12, color: "#a7f3d0", whiteSpace: "pre-wrap" }}>
-            {JSON.stringify(msg.tool_args, null, 2)}
-          </pre>
-          <div style={{ fontSize: 12, color: "#cbd5e1" }}>result</div>
-          <pre style={{ margin: "2px 0 0", fontSize: 12, color: "#a7f3d0", whiteSpace: "pre-wrap" }}>
-            {JSON.stringify(msg.tool_result, null, 2)}
-          </pre>
+      <div className="turn turn--tool_call">
+        <div className="turn-label">
+          tool call <span className="tool-name mono">{msg.tool}</span>
         </div>
+        <div className="io-label">arguments</div>
+        <pre className="io mono">{JSON.stringify(msg.tool_args, null, 2)}</pre>
+        <div className="io-label">result</div>
+        <pre className="io mono">{JSON.stringify(msg.tool_result, null, 2)}</pre>
+        <UsageLine msg={msg} />
         <Why reasoning={msg.reasoning} />
       </div>
     );
@@ -89,26 +82,24 @@ export default function ChatMessage({ msg }: { msg: Message }) {
       : undefined;
 
   return (
-    <div>
-      <div style={BUBBLE}>
-        <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 4 }}>
+    <div className="turn turn--answer">
+      <div className="turn-label">answer</div>
+      {(confidence !== undefined || msg.verified) && (
+        <div className="meta-row">
           {confidence !== undefined && (
             <span
+              className="meta"
               title={`Fused RRF score ${msg.retrieval_confidence} of a ${MAX_RRF.toFixed(4)} maximum`}
-              style={{ fontSize: 10, background: "#1e293b", color: "#93c5fd", borderRadius: 4, padding: "1px 5px" }}
             >
               confidence {confidence}%
             </span>
           )}
-          {msg.verified && (
-            <span style={{ fontSize: 10, background: "#1e293b", color: "#86efac", borderRadius: 4, padding: "1px 5px" }}>
-              groundedness verified
-            </span>
-          )}
+          {msg.verified && <span className="meta">groundedness verified</span>}
         </div>
-        <div>{msg.answer}</div>
-        <SourceSnippets sources={msg.sources ?? []} />
-      </div>
+      )}
+      <div className="turn-body">{msg.answer}</div>
+      <SourceSnippets sources={msg.sources ?? []} />
+      <UsageLine msg={msg} />
       <Why reasoning={msg.reasoning} />
     </div>
   );

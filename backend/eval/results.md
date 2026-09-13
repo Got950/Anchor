@@ -8,8 +8,8 @@ Judge LLM: `gpt-4.1-mini` (LangchainLLMWrapper). Pairs scored: 7
 
 | metric | score |
 |---|---|
-| faithfulness | 0.845 |
-| answer_relevancy | 0.744 |
+| faithfulness | 0.857 |
+| answer_relevancy | 0.654 |
 | context_precision | 0.976 |
 | context_recall | 1.000 |
 

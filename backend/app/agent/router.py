@@ -13,6 +13,29 @@ from .tools import TOOLS
 PATHS = ("semantic_lookup", "aggregation", "create_support_ticket", "flag_generation_for_review", "clarify")
 _REASONING = {"type": "string", "description": "One sentence: why this path fits the user's message."}
 
+# A clarify is allowed to fire twice on one pending tool intent; a third time is a loop.
+MAX_CLARIFY_ATTEMPTS = 2
+GAVE_UP = (
+    "I wasn't able to get enough detail to file this — try describing it as one message, "
+    "e.g. 'create a ticket, export failing on Bedrock, priority high'"
+)
+
+# "Call the create_support_ticket tool" told the model nothing about when NOT to, so
+# "create a 3D asset for a lamp" read as a create-something request and landed on ticket
+# filing. Naming the exclusion fixes that (lamp -> clarify, 6/6 runs), but the exclusion
+# alone also scared the model off a bare "create a ticket" — which IS a ticket request and
+# belongs on the tool path so the Pydantic guardrail is the one asking for the missing
+# fields. Both halves are needed: with the positive case spelled out too, "create a ticket"
+# routes to the tool 6/6 and the lamp still routes to clarify 6/6.
+_TOOL_SCOPE = {
+    "create_support_ticket": (
+        " Choose this whenever the user asks for a support TICKET, even with no other detail "
+        '("create a ticket", "file a support ticket about X") — the missing fields are collected '
+        "downstream. Do NOT choose it for a request to create, generate, make or build CONTENT — "
+        "a 3D asset, a model, a mesh, a structure — which is not a support ticket; use clarify there."
+    ),
+}
+
 
 def _tool_schemas() -> list[dict]:
     """Tool definitions handed to the LLM. Args come straight from the Pydantic models,
@@ -33,7 +56,11 @@ def _tool_schemas() -> list[dict]:
         },
         {
             "name": "clarify",
-            "description": "Ask for missing detail, or refuse an out-of-scope request.",
+            "description": (
+                "Ask for missing detail, or refuse an out-of-scope request. Also the right choice "
+                "when the user wants something none of the other paths cover — ask what they "
+                "actually want help with, and never assume they meant to file a support ticket."
+            ),
             "parameters": {
                 "type": "object",
                 "properties": {"reasoning": _REASONING, "clarifying_question": {"type": "string"}},
@@ -47,7 +74,7 @@ def _tool_schemas() -> list[dict]:
         schemas.append(
             {
                 "name": name,
-                "description": f"Call the {name} tool. Include only arguments the user actually stated.",
+                "description": f"Call the {name} tool.{_TOOL_SCOPE.get(name, '')} Include only arguments the user actually stated.",
                 "parameters": {"type": "object", "properties": props, "required": ["reasoning"]},
             }
         )
@@ -81,38 +108,74 @@ def _keyword_route(message: str) -> dict:
     return {"name": "semantic_lookup", "args": {"reasoning": "factual question, answerable from the documentation"}}
 
 
-def classify(message: str) -> dict:
+def classify(message: str, previous_response_id: str | None = None) -> dict:
     system = (config.PROMPTS_DIR / "router_system.md").read_text(encoding="utf-8")
-    choice = llm.tool_use(system, message, _tool_schemas(), fallback=lambda: _keyword_route(message))
+    choice = llm.tool_use(
+        system, message, _tool_schemas(),
+        fallback=lambda: _keyword_route(message),
+        previous_response_id=previous_response_id,
+    )
     if choice.get("name") not in PATHS:
-        choice = _keyword_route(message)
+        # Merge, don't replace: the fallback only knows the path, not the conversation state.
+        choice = {**choice, **_keyword_route(message)}
     return choice
+
+
+def _clarify_streak(prior_calls: list[str]) -> int:
+    """How many clarify attempts the resumed conversation has already spent.
+
+    Derived from the stored conversation instead of trusted from the client: /agent returns an
+    empty response_id the moment a tool actually runs, so a chain that is still being resumed
+    ends in turns that asked a question. Counting trailing clarify/tool-intent turns therefore
+    counts attempts, and mis-counting can only end a chain early — never loop it.
+    """
+    streak = 0
+    for name in reversed(prior_calls):
+        if name != "clarify" and name not in TOOLS:
+            break
+        streak += 1
+    return streak
 
 
 # --- dispatch ----------------------------------------------------------------
 
-def handle(message: str) -> dict:
-    choice = classify(message)
+def handle(message: str, previous_response_id: str | None = None) -> dict:
+    choice = classify(message, previous_response_id)
     path = choice["name"]
     args = dict(choice.get("args") or {})
     reasoning = str(args.pop("reasoning", "") or f"routed to {path}")
+    response_id = choice.get("response_id") or ""
+    history: list[str] = choice.get("history") or []
+    spent = _clarify_streak(choice.get("prior_calls") or [])
+
+    def clarify(question: str, **extra) -> dict:
+        """Ask, and keep the conversation resumable — unless that would be the third ask."""
+        attempt = spent + 1
+        keep = attempt <= MAX_CLARIFY_ATTEMPTS
+        question, next_id = (question, response_id) if keep else (GAVE_UP, "")
+        logging_utils.log_interaction(
+            "clarify", reasoning, message=message,
+            extra={"clarifying_question": question, "clarify_attempt": attempt, "response_id": next_id, **extra},
+        )
+        return {"type": "clarify", "reasoning": reasoning, "clarifying_question": question, "response_id": next_id}
 
     if path in TOOLS:
-        validated, question = guardrails.validate(path, args)
+        # Ground tool args against the WHOLE resumed conversation, not just this message: a
+        # summary the user gave two turns ago is user-stated, so validating against `message`
+        # alone would drop it as invented and ask for it again forever. Validation itself is
+        # untouched — Pydantic still decides whether the tool may run.
+        validated, question = guardrails.validate(path, args, message="\n".join([*history, message]))
         if validated is None:
-            logging_utils.log_interaction(
-                "clarify", reasoning, message=message, extra={"clarifying_question": question, "intended_tool": path, "rejected_args": args}
-            )
-            return {"type": "clarify", "reasoning": reasoning, "clarifying_question": question}
+            return clarify(question, intended_tool=path, rejected_args=args)
         result = TOOLS[path][1](validated)
         inputs = validated.model_dump()
         logging_utils.log_interaction("tool_call", reasoning, message=message, tool=path, inputs=inputs, outputs=result)
-        return {"type": "tool_call", "reasoning": reasoning, "tool": path, "tool_args": inputs, "tool_result": result}
+        # Request resolved: an empty response_id tells the frontend not to resume this
+        # conversation, so the next message is not read as more of a ticket that already exists.
+        return {"type": "tool_call", "reasoning": reasoning, "tool": path, "tool_args": inputs, "tool_result": result, "response_id": ""}
 
     if path == "clarify":
-        question = args.get("clarifying_question") or "Could you rephrase that? I can answer questions about Craftify, file a support ticket, or flag a generation for review."
-        logging_utils.log_interaction("clarify", reasoning, message=message, extra={"clarifying_question": question})
-        return {"type": "clarify", "reasoning": reasoning, "clarifying_question": question}
+        return clarify(args.get("clarifying_question") or "Could you rephrase that? I can answer questions about Craftify, file a support ticket, or flag a generation for review.")
 
     res = generator.aggregate_answer(message) if path == "aggregation" else generator.answer_question(message)
     kind = "abstain" if res["abstained"] else "answer"
@@ -136,4 +199,5 @@ def handle(message: str) -> dict:
         "sources": res["sources"],
         "retrieval_confidence": res["retrieval_confidence"],
         "verified": res["verified"],
+        "response_id": response_id,
     }

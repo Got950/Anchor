@@ -73,6 +73,17 @@ def check_generation():
     assert [s["doc_id"] for s in agg["sources"]] == ["ticket_105"], agg
     bug = generator.aggregate_answer("which ticket was not closed as expected behavior")
     assert [s["doc_id"] for s in bug["sources"]] == ["ticket_106"], bug
+    assert 0 < agg["retrieval_confidence"] < 1.0, agg   # real fused score, never a hardcoded 1.0
+
+    # A "refund"/"credits" keyword alone must NOT reach the ticket table: these are doc
+    # questions, and answering them from ticket_105's metadata is a wrong-path hallucination.
+    assert not generator.is_ticket_set_question("which failures are eligible for a refund")
+    assert not generator.is_ticket_set_question("ticket #1058 — was a refund issued")
+    assert generator.is_ticket_set_question("which support tickets resulted in a refund")
+    for doc_q, want in (("Which failures are eligible for a generation-credit refund?", "doc_06"),
+                        ("How many bonus generation credits does Build of the Week award?", "doc_13")):
+        bounced = generator.aggregate_answer(doc_q)     # misrouted here -> must fall back to semantic
+        assert want in [s["doc_id"] for s in bounced["sources"]], (doc_q, bounced["sources"])
     print("ok  generation: grounded answer, abstention, aggregation scan")
 
 
@@ -90,6 +101,10 @@ def check_agent():
 
     flag = router.handle("flag this generation for review because the castle has floating blocks")
     assert flag["type"] == "tool_call" and flag["tool"] == "flag_generation_for_review", flag
+
+    # Router LLMs sometimes invent a reason when the user gave none — guardrails must reject that.
+    flag_missing = router.handle("Please flag my generation for review")
+    assert flag_missing["type"] == "clarify", flag_missing
 
     ask = router.handle("how do I get an API key")
     assert ask["type"] == "answer" and ask["sources"], ask

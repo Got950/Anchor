@@ -6,12 +6,20 @@ from __future__ import annotations
 
 import logging
 import re
+import threading
 from dataclasses import dataclass, field
 from pathlib import Path
 
 from .. import config, llm
 
 log = logging.getLogger(__name__)
+
+# FastAPI runs sync /ask+/agent in a threadpool. Concurrent SentenceTransformer.encode
+# nests OpenMP/torch pools and permanently grows process threads (measured: 16 parallel
+# encodes 80→288 threads; stress §4 then leaves /ask 500 while /health stays green).
+# Serialize encode so concurrent requests cannot fork that pool. Ceiling: embed throughput
+# is one-at-a-time; upgrade path is an async worker process or a proper embedding service.
+_EMBED_LOCK = threading.Lock()
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 
@@ -150,7 +158,8 @@ class Index:
     doc_freq: dict[str, int]           # token -> number of corpus files containing it
 
     def embed(self, text: str) -> list[float]:
-        return self.embedder.encode([text], normalize_embeddings=True)[0].tolist()
+        with _EMBED_LOCK:
+            return self.embedder.encode([text], normalize_embeddings=True)[0].tolist()
 
     def sparse_query_tokens(self, query: str) -> list[str]:
         """Query tokens rare enough to carry signal (see config.BM25_MAX_DF_RATIO)."""
@@ -166,12 +175,24 @@ def build_index(corpus_dir: Path | None = None) -> Index:
     from rank_bm25 import BM25Okapi
     from sentence_transformers import SentenceTransformer
 
+    root = corpus_dir or config.CORPUS_DIR
+    if not root.is_dir():
+        raise FileNotFoundError(f"Corpus directory missing: {root}. Create it and add *.txt files before starting the server.")
     docs = load_corpus(corpus_dir)
+    if not docs:
+        raise RuntimeError(f"Corpus directory is empty (no *.txt files): {root}. Refusing to start with a broken index.")
     log.info("Ingesting %d corpus files (LLM metadata extraction: %s)", len(docs), llm.available())
     for doc in docs:
         doc.metadata = extract_metadata(doc, docs)
 
     embedder = SentenceTransformer(config.EMBED_MODEL)
+    # Cap intra-op threads so even a single encode cannot spawn a large OpenMP pool.
+    try:
+        import torch
+
+        torch.set_num_threads(1)
+    except Exception:
+        pass
     embeddings = embedder.encode([d.text for d in docs], normalize_embeddings=True).tolist()
 
     client = chromadb.Client()

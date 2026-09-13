@@ -1,0 +1,3265 @@
+{
+  "health": {
+    "status": "ok",
+    "documents": 20,
+    "llm": true,
+    "model": "gpt-4.1-mini"
+  },
+  "part_a": {
+    "elapsed_sec": 2.26,
+    "n": 30,
+    "n_pass": 29,
+    "n_fail": 1,
+    "n_contamination": 0,
+    "results": [
+      {
+        "id": 1,
+        "topic": "export_formats",
+        "question": "What formats can a finished structure be exported as?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Finished structures can be exported as .schematic (Java Edition only, compatible with WorldEdit and MCEdit), .litematic (Java Edition only, compatible with Litematica mod), .glb (generic 3D format for use outside Minecraft), and .nbt (raw structure block format, works on both Java and Bedrock with some block state substitutions on Bedrock) [doc_04].",
+        "sources": [
+          "doc_04",
+          "doc_01",
+          "ticket_103",
+          "ticket_102",
+          "doc_02"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Finished structures can be exported as .schematic (Java Edition only, compatible with WorldEdit and MCEdit), .litematic (Java Edition only, compatible with Litematica mod), .glb (generic 3D format for use outside Minecraft), and .nbt (raw structure block format, works on both Java and Bedrock with some block state substitutions on Bedrock) [doc_04].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_04",
+              "title": "Export Formats and Compatibility",
+              "snippet": "Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_103",
+              "title": "Support Ticket #1071",
+              "snippet": "Subject: Can't export to Bedrock add-on format User: I need this build as a Bedrock add-on, not just .nbt. Is that possible? Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1681,
+            "completion_tokens": 84,
+            "total_tokens": 1765,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 2,
+        "topic": "free_tier_limits",
+        "question": "How many generations per day does the Free tier allow and what is its maximum structure size?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "The Free tier allows 10 generations per day and has a maximum structure size of 64x64x64 blocks [doc_05].",
+        "sources": [
+          "doc_05",
+          "doc_06",
+          "doc_01",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "The Free tier allows 10 generations per day and has a maximum structure size of 64x64x64 blocks [doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1434,
+            "completion_tokens": 29,
+            "total_tokens": 1463,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 3,
+        "topic": "review_confidence",
+        "question": "What confidence score causes a build to be tagged review recommended?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "A build is tagged \"review recommended\" when the generation model's internal confidence score falls below 0.62 [doc_07].",
+        "sources": [
+          "doc_07",
+          "doc_06",
+          "doc_02",
+          "ticket_102"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "A build is tagged \"review recommended\" when the generation model's internal confidence score falls below 0.62 [doc_07].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1352,
+            "completion_tokens": 28,
+            "total_tokens": 1380,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 4,
+        "topic": "api_key_studio",
+        "question": "How do I get an API key and which tier is required?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Studio-tier accounts can request an API key from Account Settings > Developer. API access is available only on the Studio tier, which costs $60/month and includes unlimited generations and other features [doc_09][doc_05].",
+        "sources": [
+          "doc_09",
+          "doc_05",
+          "ticket_101",
+          "doc_12",
+          "doc_03",
+          "doc_08"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Studio-tier accounts can request an API key from Account Settings > Developer. API access is available only on the Studio tier, which costs $60/month and includes unlimited generations and other features [doc_09][doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1925,
+            "completion_tokens": 46,
+            "total_tokens": 1971,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 5,
+        "topic": "custom_preset_refs",
+        "question": "How many reference builds do I need to upload for a custom style preset?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "You need to upload at least 5 reference builds for a custom style preset to unlock the style-transfer fine-tuning job. Uploading fewer than 5 will keep the option greyed out [doc_03][ticket_107].",
+        "sources": [
+          "doc_03",
+          "ticket_107",
+          "doc_05",
+          "doc_12",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0331,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "You need to upload at least 5 reference builds for a custom style preset to unlock the style-transfer fine-tuning job. Uploading fewer than 5 will keep the option greyed out [doc_03][ticket_107].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_107",
+              "title": "Support Ticket #1110",
+              "snippet": "Subject: Custom style preset request denied User: I uploaded 3 reference builds for a custom style but the option is greyed out. Resolution: Explained that custom style presets require a minimum of 5 reference builds...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1889,
+            "completion_tokens": 48,
+            "total_tokens": 1937,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 6,
+        "topic": "stuck_queued_issue",
+        "question": "Which known issue caused the ticket about a generation stuck on queued, and what does that known issue say?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "The generation stuck on \"queued\" in ticket #1042 was caused by Known Issue #4, which states that API job polling can return a stale \"queued\" status for up to 30 seconds after a job actually completes [ticket_101][doc_12].",
+        "sources": [
+          "ticket_101",
+          "doc_12",
+          "doc_06",
+          "ticket_105",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "The generation stuck on \"queued\" in ticket #1042 was caused by Known Issue #4, which states that API job polling can return a stale \"queued\" status for up to 30 seconds after a job actually completes [ticket_101][doc_12].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_105",
+              "title": "Support Ticket #1097",
+              "snippet": "Subject: Underwater build has floating coral chunks User: My 150x150x150 underwater temple has weird floating coral pieces disconnected from the main structure. Resolution: Matches Known Issue #2 \u2014 underwater preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 2176,
+            "completion_tokens": 55,
+            "total_tokens": 2231,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 7,
+        "topic": "floating_coral",
+        "question": "The ticket about floating coral chunks matches which known issue, and what workaround does that issue give?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "The ticket about floating coral chunks matches Known Issue #2, which states that structures using the \"underwater\" style preset above 128x128x128 occasionally generate with disconnected floating coral geometry. The workaround is to regenerate the build at a smaller size, specifically at 128x128x128 or below [ticket_105][doc_12].",
+        "sources": [
+          "ticket_105",
+          "doc_12",
+          "ticket_101",
+          "doc_07",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "The ticket about floating coral chunks matches Known Issue #2, which states that structures using the \"underwater\" style preset above 128x128x128 occasionally generate with disconnected floating coral geometry. The workaround is to regenerate the build at a smaller size, specifically at 128x128x128 or below [ticket_105][doc_12].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_105",
+              "title": "Support Ticket #1097",
+              "snippet": "Subject: Underwater build has floating coral chunks User: My 150x150x150 underwater temple has weird floating coral pieces disconnected from the main structure. Resolution: Matches Known Issue #2 \u2014 underwater preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 2150,
+            "completion_tokens": 71,
+            "total_tokens": 2221,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 8,
+        "topic": "refund_eligible_failures",
+        "question": "Which failures are eligible for a generation-credit refund?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Only transient GPU worker errors (category 3 failures) are eligible for a generation-credit refund; other failure categories such as content policy violations, size limit exceedance, or ambiguous prompts are not refunded [doc_06].",
+        "sources": [
+          "doc_06",
+          "doc_11",
+          "doc_07",
+          "doc_05"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Only transient GPU worker errors (category 3 failures) are eligible for a generation-credit refund; other failure categories such as content policy violations, size limit exceedance, or ambiguous prompts are not refunded [doc_06].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1344,
+            "completion_tokens": 45,
+            "total_tokens": 1389,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 9,
+        "topic": "billing_refund_window",
+        "question": "Within how many days of the initial charge can I get a refund, and are renewals eligible?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "You can get a refund only within 7 days of the initial charge, and renewals are not eligible for refunds [doc_11].",
+        "sources": [
+          "doc_11",
+          "ticket_104",
+          "doc_13",
+          "doc_06"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "You can get a refund only within 7 days of the initial charge, and renewals are not eligible for refunds [doc_11].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_104",
+              "title": "Support Ticket #1089",
+              "snippet": "Subject: Charged twice this month User: I see two charges on my card this month, was I double billed? Resolution: Investigated billing history \u2014 user upgraded from Pro to Studio mid-cycle, which triggered an immediate...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1170,
+            "completion_tokens": 29,
+            "total_tokens": 1199,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 10,
+        "topic": "workspace_seats",
+        "question": "How many seats can a Studio Team Workspace have?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "A Studio Team Workspace can have up to 10 seats [doc_08].",
+        "sources": [
+          "doc_08",
+          "ticket_106",
+          "doc_13",
+          "doc_05"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "A Studio Team Workspace can have up to 10 seats [doc_08].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_106",
+              "title": "Support Ticket #1103",
+              "snippet": "Subject: Team workspace build not visible after member removed User: We removed a team member and now their builds are missing from our workspace. Resolution: Clarified that per the Team Workspaces doc, builds generated...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1200,
+            "completion_tokens": 17,
+            "total_tokens": 1217,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 11,
+        "topic": "prompt_truncation",
+        "question": "What happens to prompts longer than 400 characters?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Prompts longer than 400 characters are truncated by the Craftify generation model. This means only the first 400 characters are used for generation [doc_02].",
+        "sources": [
+          "doc_02",
+          "doc_10",
+          "ticket_102",
+          "doc_01"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Prompts longer than 400 characters are truncated by the Craftify generation model. This means only the first 400 characters are used for generation [doc_02].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_10",
+              "title": "Content Policy for Prompts",
+              "snippet": "Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1362,
+            "completion_tokens": 34,
+            "total_tokens": 1396,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 12,
+        "topic": "botw_credits",
+        "question": "How many bonus generation credits does Build of the Week award, and how long are they valid?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Build of the Week awards 30 bonus generation credits, which are valid for 60 days from the announcement date [doc_13].",
+        "sources": [
+          "doc_13",
+          "doc_11",
+          "doc_08",
+          "doc_05"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Build of the Week awards 30 bonus generation credits, which are valid for 60 days from the announcement date [doc_13].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1198,
+            "completion_tokens": 28,
+            "total_tokens": 1226,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 13,
+        "topic": "content_policy_ip",
+        "question": "Are prompts that reference copyrighted characters allowed?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "No, prompts referencing copyrighted characters or franchises are rejected automatically as they could constitute unauthorized derivative works [doc_10].",
+        "sources": [
+          "doc_10",
+          "doc_02",
+          "ticket_107",
+          "doc_03"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "No, prompts referencing copyrighted characters or franchises are rejected automatically as they could constitute unauthorized derivative works [doc_10].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_10",
+              "title": "Content Policy for Prompts",
+              "snippet": "Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_107",
+              "title": "Support Ticket #1110",
+              "snippet": "Subject: Custom style preset request denied User: I uploaded 3 reference builds for a custom style but the option is greyed out. Resolution: Explained that custom style presets require a minimum of 5 reference builds...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1304,
+            "completion_tokens": 24,
+            "total_tokens": 1328,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 14,
+        "topic": "generation_time",
+        "question": "How long does a typical generation take?",
+        "pass": false,
+        "contamination": false,
+        "reason": "abstained on known-answer question (not contamination)",
+        "answer": "ABSTAIN: not covered in the documentation.",
+        "sources": [
+          "doc_06",
+          "doc_12",
+          "doc_11",
+          "doc_13",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": false,
+        "abstained": true,
+        "override_reason": null,
+        "retrieval_confidence": 0.0167,
+        "foreign_hits": [],
+        "ans_ok": false,
+        "src_ok": false,
+        "raw": {
+          "answer": "ABSTAIN: not covered in the documentation.",
+          "abstained": true,
+          "sources": [
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0167,
+          "verified": false,
+          "usage": {
+            "prompt_tokens": 1024,
+            "completion_tokens": 10,
+            "total_tokens": 1034,
+            "calls": 1
+          }
+        }
+      },
+      {
+        "id": 15,
+        "topic": "pro_tier",
+        "question": "What is the Pro tier monthly price and daily generation limit?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "The Pro tier costs $15 per month and has a daily generation limit of 100 generations. [doc_05]",
+        "sources": [
+          "doc_09",
+          "doc_11",
+          "doc_05",
+          "doc_12",
+          "doc_03",
+          "doc_08"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0328,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "The Pro tier costs $15 per month and has a daily generation limit of 100 generations. [doc_05]",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0328,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1849,
+            "completion_tokens": 25,
+            "total_tokens": 1874,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 16,
+        "topic": "no_bedrock_addon",
+        "question": "Does Craftify offer a native Bedrock add-on export format?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "No, Craftify does not currently offer a native Bedrock add-on export format. The closest available option is exporting as .nbt, which works on both Java and Bedrock editions but with some automatic block substitutions on Bedrock due to palette limitations. Native Bedrock add-on export is the top item on the roadmap but has no committed release date yet [doc_04][ticket_103].",
+        "sources": [
+          "doc_04",
+          "ticket_103",
+          "doc_01",
+          "doc_12",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0331,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "No, Craftify does not currently offer a native Bedrock add-on export format. The closest available option is exporting as .nbt, which works on both Java and Bedrock editions but with some automatic block substitutions on Bedrock due to palette limitations. Native Bedrock add-on export is the top item on the roadmap but has no committed release date yet [doc_04][ticket_103].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_04",
+              "title": "Export Formats and Compatibility",
+              "snippet": "Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_103",
+              "title": "Support Ticket #1071",
+              "snippet": "Subject: Can't export to Bedrock add-on format User: I need this build as a Bedrock add-on, not just .nbt. Is that possible? Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 2198,
+            "completion_tokens": 81,
+            "total_tokens": 2279,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 17,
+        "topic": "credits_rollover",
+        "question": "When do unused generation credits reset, and do they roll over?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Unused generation credits do not roll over month to month and have no cash value, implying they reset at the start of each new billing period (monthly) [doc_11].",
+        "sources": [
+          "doc_11",
+          "doc_13",
+          "doc_05",
+          "doc_06"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Unused generation credits do not roll over month to month and have no cash value, implying they reset at the start of each new billing period (monthly) [doc_11].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1250,
+            "completion_tokens": 36,
+            "total_tokens": 1286,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 18,
+        "topic": "api_poll_rate",
+        "question": "What is the API job polling rate limit?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "The API job polling rate limit is 1 request per 2 seconds per job; more frequent polling returns a 429 error [doc_09].",
+        "sources": [
+          "doc_09",
+          "ticket_101",
+          "doc_05",
+          "doc_12",
+          "doc_03",
+          "doc_08"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "The API job polling rate limit is 1 request per 2 seconds per job; more frequent polling returns a 429 error [doc_09].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1902,
+            "completion_tokens": 31,
+            "total_tokens": 1933,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 19,
+        "topic": "workspace_build_ownership",
+        "question": "After a member is removed from a workspace, can other members still access builds generated in that workspace?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Yes, builds generated inside a workspace are owned by the workspace and remain accessible to other members even after a member is removed from the workspace [doc_08].",
+        "sources": [
+          "ticket_106",
+          "doc_08",
+          "doc_12",
+          "doc_13",
+          "doc_03",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Yes, builds generated inside a workspace are owned by the workspace and remain accessible to other members even after a member is removed from the workspace [doc_08].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_106",
+              "title": "Support Ticket #1103",
+              "snippet": "Subject: Team workspace build not visible after member removed User: We removed a team member and now their builds are missing from our workspace. Resolution: Clarified that per the Team Workspaces doc, builds generated...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1745,
+            "completion_tokens": 33,
+            "total_tokens": 1778,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 20,
+        "topic": "negative_constraint_rate",
+        "question": "Roughly what fraction of the time are negative constraints like 'without X' honored?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Negative constraints like \"without X\" are honored in roughly 80% of generations, according to current model limitations [doc_02][ticket_102].",
+        "sources": [
+          "ticket_102",
+          "doc_02",
+          "doc_10",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0331,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Negative constraints like \"without X\" are honored in roughly 80% of generations, according to current model limitations [doc_02][ticket_102].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_10",
+              "title": "Content Policy for Prompts",
+              "snippet": "Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1363,
+            "completion_tokens": 32,
+            "total_tokens": 1395,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 21,
+        "topic": "studio_tier",
+        "question": "What is the Studio tier price and maximum structure size?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "The Studio tier costs $60 per month and allows a maximum structure size of 512x512x512 blocks [doc_05].",
+        "sources": [
+          "doc_05",
+          "doc_09",
+          "ticket_105",
+          "doc_08",
+          "doc_12"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "The Studio tier costs $60 per month and allows a maximum structure size of 512x512x512 blocks [doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_105",
+              "title": "Support Ticket #1097",
+              "snippet": "Subject: Underwater build has floating coral chunks User: My 150x150x150 underwater temple has weird floating coral pieces disconnected from the main structure. Resolution: Matches Known Issue #2 \u2014 underwater preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1633,
+            "completion_tokens": 28,
+            "total_tokens": 1661,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 22,
+        "topic": "policy_recheck_delay",
+        "question": "How much extra generation time do borderline policy-flagged prompts add?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Borderline prompts flagged for a lightweight automated policy re-check add roughly 5-10 seconds to the generation time [doc_10].",
+        "sources": [
+          "doc_10",
+          "doc_02",
+          "doc_06",
+          "ticket_102"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Borderline prompts flagged for a lightweight automated policy re-check add roughly 5-10 seconds to the generation time [doc_10].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_10",
+              "title": "Content Policy for Prompts",
+              "snippet": "Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1373,
+            "completion_tokens": 28,
+            "total_tokens": 1401,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 23,
+        "topic": "no_posthoc_transfer",
+        "question": "Can I transfer a personal-account build into a workspace after the fact?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "No, there is currently no way to transfer a build's ownership from a personal account into a workspace after the fact; the build must be regenerated inside the workspace [doc_08].",
+        "sources": [
+          "doc_08",
+          "ticket_106",
+          "doc_11",
+          "doc_12",
+          "doc_03",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "No, there is currently no way to transfer a build's ownership from a personal account into a workspace after the fact; the build must be regenerated inside the workspace [doc_08].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_106",
+              "title": "Support Ticket #1103",
+              "snippet": "Subject: Team workspace build not visible after member removed User: We removed a team member and now their builds are missing from our workspace. Resolution: Clarified that per the Team Workspaces doc, builds generated...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1785,
+            "completion_tokens": 38,
+            "total_tokens": 1823,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 24,
+        "topic": "free_export_formats",
+        "question": "Which export formats are available on the Free tier?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "The Free tier allows exports limited to .schematic and .glb formats only [doc_05].",
+        "sources": [
+          "ticket_103",
+          "doc_04",
+          "doc_05",
+          "doc_01"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0331,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "The Free tier allows exports limited to .schematic and .glb formats only [doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_103",
+              "title": "Support Ticket #1071",
+              "snippet": "Subject: Can't export to Bedrock add-on format User: I need this build as a Bedrock add-on, not just .nbt. Is that possible? Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_04",
+              "title": "Export Formats and Compatibility",
+              "snippet": "Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1385,
+            "completion_tokens": 22,
+            "total_tokens": 1407,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 25,
+        "topic": "downgrade_timing",
+        "question": "Does downgrading from Pro take effect immediately or at period end?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Downgrading from Pro takes effect at the end of the current billing period; you keep tier benefits until then [doc_11].",
+        "sources": [
+          "doc_11",
+          "ticket_104",
+          "doc_12",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Downgrading from Pro takes effect at the end of the current billing period; you keep tier benefits until then [doc_11].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_104",
+              "title": "Support Ticket #1089",
+              "snippet": "Subject: Charged twice this month User: I see two charges on my card this month, was I double billed? Resolution: Investigated billing history \u2014 user upgraded from Pro to Studio mid-cycle, which triggered an immediate...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1769,
+            "completion_tokens": 28,
+            "total_tokens": 1797,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 26,
+        "topic": "bedrock_glass_bug",
+        "question": "What known issue affects Bedrock .nbt glass color?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, with a fix targeted for the next release [doc_12].",
+        "sources": [
+          "doc_12",
+          "ticket_103",
+          "doc_04",
+          "ticket_105",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, with a fix targeted for the next release [doc_12].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_103",
+              "title": "Support Ticket #1071",
+              "snippet": "Subject: Can't export to Bedrock add-on format User: I need this build as a Bedrock add-on, not just .nbt. Is that possible? Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_04",
+              "title": "Export Formats and Compatibility",
+              "snippet": "Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_105",
+              "title": "Support Ticket #1097",
+              "snippet": "Subject: Underwater build has floating coral chunks User: My 150x150x150 underwater temple has weird floating coral pieces disconnected from the main structure. Resolution: Matches Known Issue #2 \u2014 underwater preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 2119,
+            "completion_tokens": 34,
+            "total_tokens": 2153,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 27,
+        "topic": "workspace_sync_lag",
+        "question": "How long can workspace sync lag, and is that considered a bug?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Workspace generation history can take up to 10 minutes to sync across members after a new build is created, and this latency is expected, not considered a bug [doc_12].",
+        "sources": [
+          "doc_12",
+          "doc_08",
+          "ticket_106",
+          "doc_03",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Workspace generation history can take up to 10 minutes to sync across members after a new build is created, and this latency is expected, not considered a bug [doc_12].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_106",
+              "title": "Support Ticket #1103",
+              "snippet": "Subject: Team workspace build not visible after member removed User: We removed a team member and now their builds are missing from our workspace. Resolution: Clarified that per the Team Workspaces doc, builds generated...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1571,
+            "completion_tokens": 37,
+            "total_tokens": 1608,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 28,
+        "topic": "ticket_102_no_refund",
+        "question": "Ticket #1058 about negative prompts not being respected \u2014 was a refund issued?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "No refund was issued for Ticket #1058 because the negative prompt limitation is expected behavior and falls under ambiguous/low-confidence results, not a system failure [ticket_102].",
+        "sources": [
+          "ticket_102",
+          "doc_10",
+          "ticket_101",
+          "ticket_104",
+          "doc_02",
+          "doc_12"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0331,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "No refund was issued for Ticket #1058 because the negative prompt limitation is expected behavior and falls under ambiguous/low-confidence results, not a system failure [ticket_102].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_10",
+              "title": "Content Policy for Prompts",
+              "snippet": "Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_104",
+              "title": "Support Ticket #1089",
+              "snippet": "Subject: Charged twice this month User: I see two charges on my card this month, was I double billed? Resolution: Investigated billing history \u2014 user upgraded from Pro to Studio mid-cycle, which triggered an immediate...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1894,
+            "completion_tokens": 36,
+            "total_tokens": 1930,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 29,
+        "topic": "preset_tier_finetune",
+        "question": "What custom style preset tier is required, and how long does fine-tuning take?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "Custom style presets require the Pro tier, and the fine-tuning job takes 2-6 hours to complete after uploading at least 5 reference builds for the style [doc_03][ticket_107][doc_05].",
+        "sources": [
+          "doc_03",
+          "ticket_107",
+          "doc_05",
+          "doc_12",
+          "doc_08",
+          "doc_09"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0331,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "Custom style presets require the Pro tier, and the fine-tuning job takes 2-6 hours to complete after uploading at least 5 reference builds for the style [doc_03][ticket_107][doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_107",
+              "title": "Support Ticket #1110",
+              "snippet": "Subject: Custom style preset request denied User: I uploaded 3 reference builds for a custom style but the option is greyed out. Resolution: Explained that custom style presets require a minimum of 5 reference builds...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1892,
+            "completion_tokens": 47,
+            "total_tokens": 1939,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 30,
+        "topic": "cap_exceed_429",
+        "question": "When a Free-tier user exceeds the daily generation cap, what HTTP status is returned?",
+        "pass": true,
+        "contamination": false,
+        "reason": "answer matches expected topic",
+        "answer": "When a Free-tier user exceeds the daily generation cap, a 429 error is returned with a reset_at timestamp in the response body [doc_05].",
+        "sources": [
+          "doc_05",
+          "doc_09",
+          "ticket_101",
+          "doc_06",
+          "doc_12"
+        ],
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "retrieval_confidence": 0.0333,
+        "foreign_hits": [],
+        "ans_ok": true,
+        "src_ok": true,
+        "raw": {
+          "answer": "When a Free-tier user exceeds the daily generation cap, a 429 error is returned with a reset_at timestamp in the response body [doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1715,
+            "completion_tokens": 32,
+            "total_tokens": 1747,
+            "calls": 2
+          }
+        }
+      }
+    ]
+  },
+  "part_b": {
+    "elapsed_sec": 32.16,
+    "n": 20,
+    "results": [
+      {
+        "id": 1,
+        "kind": "golden",
+        "question": "What formats can a finished structure be exported as?",
+        "ground_notes": "doc_04: .schematic, .litematic, .glb, .nbt",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "Finished structures can be exported as .schematic (Java Edition only, compatible with WorldEdit and MCEdit), .litematic (Java Edition only, compatible with Litematica mod), .glb (generic 3D format for use outside Minecraft), and .nbt (raw structure block format, works on both Java and Bedrock with some block substitution on Bedrock) [doc_04].",
+        "sources": [
+          "doc_04",
+          "doc_01",
+          "ticket_103",
+          "ticket_102",
+          "doc_02"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "Finished structures can be exported as .schematic (Java Edition only, compatible with WorldEdit and MCEdit), .litematic (Java Edition only, compatible with Litematica mod), .glb (generic 3D format for use outside Minecraft), and .nbt (raw structure block format, works on both Java and Bedrock with some block substitution on Bedrock) [doc_04].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_04",
+              "title": "Export Formats and Compatibility",
+              "snippet": "Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_103",
+              "title": "Support Ticket #1071",
+              "snippet": "Subject: Can't export to Bedrock add-on format User: I need this build as a Bedrock add-on, not just .nbt. Is that possible? Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1680,
+            "completion_tokens": 83,
+            "total_tokens": 1763,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 2,
+        "kind": "golden",
+        "question": "What confidence score causes a build to be tagged review recommended?",
+        "ground_notes": "doc_07: below 0.62",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "A build is tagged \"review recommended\" when the generation model's internal confidence score falls below 0.62 [doc_07].",
+        "sources": [
+          "doc_07",
+          "doc_06",
+          "doc_02",
+          "ticket_102"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "A build is tagged \"review recommended\" when the generation model's internal confidence score falls below 0.62 [doc_07].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1352,
+            "completion_tokens": 28,
+            "total_tokens": 1380,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 3,
+        "kind": "golden",
+        "question": "How do I get an API key and which tier is required?",
+        "ground_notes": "doc_09: Studio, Account Settings > Developer",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "Studio-tier accounts can request an API key from Account Settings > Developer. API access is available only on the Studio tier, which costs $60/month and includes unlimited generations and other features [doc_09][doc_05].",
+        "sources": [
+          "doc_09",
+          "doc_05",
+          "ticket_101",
+          "doc_12",
+          "doc_03",
+          "doc_08"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "Studio-tier accounts can request an API key from Account Settings > Developer. API access is available only on the Studio tier, which costs $60/month and includes unlimited generations and other features [doc_09][doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1925,
+            "completion_tokens": 46,
+            "total_tokens": 1971,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 4,
+        "kind": "golden_abstain",
+        "question": "What uptime SLA does Craftify guarantee on the Studio tier?",
+        "ground_notes": "Not in corpus \u2014 must abstain",
+        "verifier": "ABSTAINED_NO_VERIFIER_VETO",
+        "verified": false,
+        "abstained": true,
+        "override_reason": null,
+        "answer": "ABSTAIN: not covered in the documentation.",
+        "sources": [
+          "doc_03",
+          "doc_13",
+          "doc_01",
+          "doc_11"
+        ],
+        "retrieval_confidence": 0.0325,
+        "raw": {
+          "answer": "ABSTAIN: not covered in the documentation.",
+          "abstained": true,
+          "sources": [
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0325,
+          "verified": false,
+          "usage": {
+            "prompt_tokens": 612,
+            "completion_tokens": 10,
+            "total_tokens": 622,
+            "calls": 1
+          }
+        }
+      },
+      {
+        "id": 5,
+        "kind": "golden_abstain",
+        "question": "Can I pay for my Craftify subscription with PayPal?",
+        "ground_notes": "Not in corpus \u2014 must abstain",
+        "verifier": "ABSTAINED_NO_VERIFIER_VETO",
+        "verified": false,
+        "abstained": true,
+        "override_reason": null,
+        "answer": "ABSTAIN: not covered in the documentation.",
+        "sources": [
+          "doc_13"
+        ],
+        "retrieval_confidence": 0.0167,
+        "raw": {
+          "answer": "ABSTAIN: not covered in the documentation.",
+          "abstained": true,
+          "sources": [
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0167,
+          "verified": false,
+          "usage": {
+            "prompt_tokens": 226,
+            "completion_tokens": 10,
+            "total_tokens": 236,
+            "calls": 1
+          }
+        }
+      },
+      {
+        "id": 6,
+        "kind": "paraphrase",
+        "question": "List every file extension Craftify can export a finished build to.",
+        "ground_notes": "doc_04 paraphrase of export formats",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "Craftify can export finished builds to the following file extensions: .schematic, .litematic, .glb, and .nbt [doc_04].",
+        "sources": [
+          "doc_04",
+          "doc_13",
+          "ticket_103",
+          "doc_09"
+        ],
+        "retrieval_confidence": 0.0328,
+        "raw": {
+          "answer": "Craftify can export finished builds to the following file extensions: .schematic, .litematic, .glb, and .nbt [doc_04].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_04",
+              "title": "Export Formats and Compatibility",
+              "snippet": "Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_103",
+              "title": "Support Ticket #1071",
+              "snippet": "Subject: Can't export to Bedrock add-on format User: I need this build as a Bedrock add-on, not just .nbt. Is that possible? Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0328,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1233,
+            "completion_tokens": 35,
+            "total_tokens": 1268,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 7,
+        "kind": "paraphrase",
+        "question": "On Free, what's my daily gen cap and the biggest build I can make?",
+        "ground_notes": "doc_05 paraphrase: 10/day, 64^3",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "On the Free tier, your daily generation cap is 10 generations per day, and the maximum structure size you can make is 64x64x64 blocks [doc_05].",
+        "sources": [
+          "doc_05",
+          "doc_09",
+          "doc_08",
+          "doc_01"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "On the Free tier, your daily generation cap is 10 generations per day, and the maximum structure size you can make is 64x64x64 blocks [doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1383,
+            "completion_tokens": 38,
+            "total_tokens": 1421,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 8,
+        "kind": "paraphrase",
+        "question": "Where do Studio users request developer API credentials?",
+        "ground_notes": "doc_09 paraphrase",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "Studio-tier users can request an API key from Account Settings > Developer [doc_09].",
+        "sources": [
+          "doc_09",
+          "doc_13",
+          "doc_08",
+          "ticket_106"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "Studio-tier users can request an API key from Account Settings > Developer [doc_09].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_106",
+              "title": "Support Ticket #1103",
+              "snippet": "Subject: Team workspace build not visible after member removed User: We removed a team member and now their builds are missing from our workspace. Resolution: Clarified that per the Team Workspaces doc, builds generated...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1149,
+            "completion_tokens": 19,
+            "total_tokens": 1168,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 9,
+        "kind": "paraphrase",
+        "question": "If the model is unsure about geometry quality, what score threshold triggers the review badge?",
+        "ground_notes": "doc_07 paraphrase: < 0.62",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "The review badge is triggered when the generation model's internal confidence score falls below 0.62, causing the build to be tagged \"review recommended\" and held in a Pending Review state until manually approved [doc_07].",
+        "sources": [
+          "doc_07",
+          "doc_06",
+          "ticket_105",
+          "doc_12",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "The review badge is triggered when the generation model's internal confidence score falls below 0.62, causing the build to be tagged \"review recommended\" and held in a Pending Review state until manually approved [doc_07].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_105",
+              "title": "Support Ticket #1097",
+              "snippet": "Subject: Underwater build has floating coral chunks User: My 150x150x150 underwater temple has weird floating coral pieces disconnected from the main structure. Resolution: Matches Known Issue #2 \u2014 underwater preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 2150,
+            "completion_tokens": 46,
+            "total_tokens": 2196,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 10,
+        "kind": "paraphrase",
+        "question": "For a refund after signup, what's the window and does it apply to renewals?",
+        "ground_notes": "doc_11: 7 days, first cycle only",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "Refunds are issued only within 7 days of the initial charge and apply only to the first billing cycle; renewals are not eligible for refunds [doc_11].",
+        "sources": [
+          "doc_11",
+          "ticket_104",
+          "doc_05",
+          "ticket_106",
+          "doc_08"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "Refunds are issued only within 7 days of the initial charge and apply only to the first billing cycle; renewals are not eligible for refunds [doc_11].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_104",
+              "title": "Support Ticket #1089",
+              "snippet": "Subject: Charged twice this month User: I see two charges on my card this month, was I double billed? Resolution: Investigated billing history \u2014 user upgraded from Pro to Studio mid-cycle, which triggered an immediate...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_106",
+              "title": "Support Ticket #1103",
+              "snippet": "Subject: Team workspace build not visible after member removed User: We removed a team member and now their builds are missing from our workspace. Resolution: Clarified that per the Team Workspaces doc, builds generated...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1517,
+            "completion_tokens": 35,
+            "total_tokens": 1552,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 11,
+        "kind": "new",
+        "question": "Which category of generation failure gets a credit refund?",
+        "ground_notes": "doc_06: only transient GPU (3)",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "Only category (3) failures, which are transient GPU worker errors, are eligible for a generation-credit refund; other categories such as content policy violations, size limit exceedance, or ambiguous prompts do not receive refunds [doc_06].",
+        "sources": [
+          "doc_06",
+          "doc_07",
+          "ticket_102",
+          "doc_11",
+          "doc_02"
+        ],
+        "retrieval_confidence": 0.0331,
+        "raw": {
+          "answer": "Only category (3) failures, which are transient GPU worker errors, are eligible for a generation-credit refund; other categories such as content policy violations, size limit exceedance, or ambiguous prompts do not receive refunds [doc_06].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1581,
+            "completion_tokens": 48,
+            "total_tokens": 1629,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 12,
+        "kind": "new",
+        "question": "How many seats does a Team Workspace support?",
+        "ground_notes": "doc_08: up to 10",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "A Team Workspace supports up to 10 seats in Studio-tier accounts [doc_08].",
+        "sources": [
+          "doc_08",
+          "ticket_106",
+          "doc_09",
+          "doc_05"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "A Team Workspace supports up to 10 seats in Studio-tier accounts [doc_08].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_106",
+              "title": "Support Ticket #1103",
+              "snippet": "Subject: Team workspace build not visible after member removed User: We removed a team member and now their builds are missing from our workspace. Resolution: Clarified that per the Team Workspaces doc, builds generated...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1308,
+            "completion_tokens": 19,
+            "total_tokens": 1327,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 13,
+        "kind": "new",
+        "question": "What happens if my prompt exceeds 400 characters?",
+        "ground_notes": "doc_02: truncated",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "If your prompt exceeds 400 characters, it will be truncated by the Craftify generation model. This means only the first 400 characters are used for generation [doc_02].",
+        "sources": [
+          "doc_02",
+          "doc_10",
+          "ticket_102",
+          "doc_06"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "If your prompt exceeds 400 characters, it will be truncated by the Craftify generation model. This means only the first 400 characters are used for generation [doc_02].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_10",
+              "title": "Content Policy for Prompts",
+              "snippet": "Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_102",
+              "title": "Support Ticket #1058",
+              "snippet": "Subject: Negative prompt (\"without windows\") not respected User: I asked for a castle \"without windows\" and it still generated windows on two walls. Resolution: Explained that negative constraints are honored ~80% of...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_06",
+              "title": "Why Generations Fail",
+              "snippet": "A generation can fail for several reasons: (1) prompt violates content policy (violent, hateful, or copyrighted-character requests are rejected before queuing), (2) requested size exceeds your tier's max dimensions, (3)...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1374,
+            "completion_tokens": 37,
+            "total_tokens": 1411,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 14,
+        "kind": "new",
+        "question": "How many bonus credits does Build of the Week give, and for how long are they valid?",
+        "ground_notes": "doc_13: 30 credits, 60 days",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "Build of the Week winners receive 30 bonus generation credits, which are valid for 60 days from the announcement date [doc_13].",
+        "sources": [
+          "doc_13",
+          "doc_11",
+          "doc_08",
+          "doc_07"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "Build of the Week winners receive 30 bonus generation credits, which are valid for 60 days from the announcement date [doc_13].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1131,
+            "completion_tokens": 29,
+            "total_tokens": 1160,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 15,
+        "kind": "new",
+        "question": "Are hate symbols or explicit sexual content allowed in prompts?",
+        "ground_notes": "doc_10: rejected",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "No, prompts referencing real hate symbols, extremist iconography, or explicit sexual content are automatically rejected and not queued for generation [doc_10].",
+        "sources": [
+          "doc_10",
+          "doc_02",
+          "doc_01",
+          "doc_07"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "No, prompts referencing real hate symbols, extremist iconography, or explicit sexual content are automatically rejected and not queued for generation [doc_10].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_10",
+              "title": "Content Policy for Prompts",
+              "snippet": "Prompts referencing real hate symbols, extremist iconography, or explicit sexual content are rejected automatically and are not queued. Prompts referencing copyrighted characters or franchises (e.g. named characters...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_02",
+              "title": "Writing Effective Prompts",
+              "snippet": "The Craftify generation model responds best to prompts that specify: (1) structure type (house, castle, ship, statue, landscape), (2) material or style (stone, wood, futuristic, medieval), (3) approximate scale (small,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1375,
+            "completion_tokens": 30,
+            "total_tokens": 1405,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 16,
+        "kind": "new",
+        "question": "What is the Pro plan price and its daily generation limit?",
+        "ground_notes": "doc_05: $15/mo, 100/day",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "The Pro plan costs $15 per month and has a daily generation limit of 100 generations per day [doc_05].",
+        "sources": [
+          "doc_05",
+          "doc_09",
+          "ticket_101",
+          "doc_11",
+          "doc_12"
+        ],
+        "retrieval_confidence": 0.0325,
+        "raw": {
+          "answer": "The Pro plan costs $15 per month and has a daily generation limit of 100 generations per day [doc_05].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "doc_05",
+              "title": "Generation Limits by Tier",
+              "snippet": "Free tier: 10 generations/day, max structure size 64x64x64 blocks, standard queue priority, exports limited to .schematic and .glb. Pro tier ($15/mo): 100 generations/day, max structure size 256x256x256 blocks, priority...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0325,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1617,
+            "completion_tokens": 26,
+            "total_tokens": 1643,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 17,
+        "kind": "new",
+        "question": "Is there a way to export as a native Bedrock add-on?",
+        "ground_notes": "doc_04: no native Bedrock add-on",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "No, there is currently no native Bedrock add-on export available. It is the top item on the roadmap but has no committed ship date yet. The closest option is exporting as .nbt, which works on both Java and Bedrock editions with some block state substitutions on Bedrock due to palette limitations [ticket_103][doc_04].",
+        "sources": [
+          "ticket_103",
+          "doc_04",
+          "doc_12",
+          "doc_01",
+          "doc_03",
+          "doc_08",
+          "doc_09"
+        ],
+        "retrieval_confidence": 0.0333,
+        "raw": {
+          "answer": "No, there is currently no native Bedrock add-on export available. It is the top item on the roadmap but has no committed ship date yet. The closest option is exporting as .nbt, which works on both Java and Bedrock editions with some block state substitutions on Bedrock due to palette limitations [ticket_103][doc_04].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_103",
+              "title": "Support Ticket #1071",
+              "snippet": "Subject: Can't export to Bedrock add-on format User: I need this build as a Bedrock add-on, not just .nbt. Is that possible? Resolution: Confirmed native Bedrock add-on export does not exist yet (see Export Formats doc)...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_04",
+              "title": "Export Formats and Compatibility",
+              "snippet": "Structures can be exported as: .schematic (compatible with WorldEdit and MCEdit, Java Edition only), .litematic (compatible with Litematica mod, Java Edition only), .glb (generic 3D format for use outside Minecraft,...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_01",
+              "title": "Getting Started with Craftify",
+              "snippet": "Craftify turns natural-language prompts into 3D voxel structures compatible with Minecraft-style worlds. To generate your first build, type a prompt describing the structure (e.g. \"medieval stone castle with two...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0333,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 2190,
+            "completion_tokens": 71,
+            "total_tokens": 2261,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 18,
+        "kind": "new",
+        "question": "How long can API polling keep showing queued after a job actually finished?",
+        "ground_notes": "doc_12 Known Issue #4: up to 30 seconds",
+        "verifier": "SUPPORTED",
+        "verified": true,
+        "abstained": false,
+        "override_reason": null,
+        "answer": "API job polling can return a stale \"queued\" status for up to 30 seconds after a job actually completes [doc_12].",
+        "sources": [
+          "ticket_101",
+          "doc_12",
+          "doc_09",
+          "doc_11",
+          "doc_03",
+          "doc_08"
+        ],
+        "retrieval_confidence": 0.0331,
+        "raw": {
+          "answer": "API job polling can return a stale \"queued\" status for up to 30 seconds after a job actually completes [doc_12].",
+          "abstained": false,
+          "sources": [
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_11",
+              "title": "Billing FAQ",
+              "snippet": "Subscriptions renew monthly on the signup date. Downgrading from Pro or Studio takes effect at the end of the current billing period; you keep tier benefits until then. Upgrading takes effect immediately and is...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_03",
+              "title": "Style Presets",
+              "snippet": "Craftify ships with 12 built-in style presets that can be appended to any prompt using the syntax \"[style: preset_name]\": medieval, futuristic, fantasy, modern, industrial, japanese, desert, nether, underwater,...",
+              "via_reference": true
+            },
+            {
+              "doc_id": "doc_08",
+              "title": "Team Workspaces (Studio Tier)",
+              "snippet": "Studio-tier accounts can create Team Workspaces to share generation credits and builds across up to 10 seats. Workspace admins can set per-member daily generation caps that are subsets of the workspace's shared pool....",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0331,
+          "verified": true,
+          "usage": {
+            "prompt_tokens": 1797,
+            "completion_tokens": 28,
+            "total_tokens": 1825,
+            "calls": 2
+          }
+        }
+      },
+      {
+        "id": 19,
+        "kind": "new_hard",
+        "question": "Does Craftify support paying with cryptocurrency or Apple Pay?",
+        "ground_notes": "Not in corpus \u2014 should abstain (like PayPal)",
+        "verifier": "ABSTAINED_NO_VERIFIER_VETO",
+        "verified": false,
+        "abstained": true,
+        "override_reason": null,
+        "answer": "ABSTAIN: not covered in the documentation.",
+        "sources": [
+          "doc_13"
+        ],
+        "retrieval_confidence": 0.0167,
+        "raw": {
+          "answer": "ABSTAIN: not covered in the documentation.",
+          "abstained": true,
+          "sources": [
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            }
+          ],
+          "retrieval_confidence": 0.0167,
+          "verified": false,
+          "usage": {
+            "prompt_tokens": 224,
+            "completion_tokens": 10,
+            "total_tokens": 234,
+            "calls": 1
+          }
+        }
+      },
+      {
+        "id": 20,
+        "kind": "new_hard",
+        "question": "What is Craftify's SOC 2 compliance status?",
+        "ground_notes": "Not in corpus \u2014 should abstain",
+        "verifier": "ABSTAINED_NO_VERIFIER_VETO",
+        "verified": false,
+        "abstained": true,
+        "override_reason": null,
+        "answer": "ABSTAIN: not covered in the documentation.",
+        "sources": [
+          "doc_09",
+          "doc_13",
+          "doc_07",
+          "ticket_101",
+          "doc_12"
+        ],
+        "retrieval_confidence": 0.0328,
+        "raw": {
+          "answer": "ABSTAIN: not covered in the documentation.",
+          "abstained": true,
+          "sources": [
+            {
+              "doc_id": "doc_09",
+              "title": "API Access (Studio Tier)",
+              "snippet": "Studio-tier accounts can request an API key from Account Settings > Developer. The API exposes POST /v1/generate (submit a prompt, returns a job ID), GET /v1/jobs/{id} (poll job status), and GET...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_13",
+              "title": "Office Hours and Community Events",
+              "snippet": "Craftify hosts a community build showcase every other Friday on Discord, where users present generated structures and vote on a \"Build of the Week.\" This is a community engagement feature unrelated to generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_07",
+              "title": "Review-Recommended Builds",
+              "snippet": "When the generation model's internal confidence score falls below 0.62, the resulting build is tagged \"review recommended\" instead of being auto-delivered. These builds are still generated and consume a generation...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "ticket_101",
+              "title": "Support Ticket #1042",
+              "snippet": "Subject: Generation stuck on \"queued\" for 20 minutes User: My structure has said \"queued\" for 20 minutes and hasn't started. I'm on the Pro plan. Is something down? Resolution: Checked queue health \u2014 no outage. User's...",
+              "via_reference": false
+            },
+            {
+              "doc_id": "doc_12",
+              "title": "Known Issues (Updated Monthly)",
+              "snippet": "Currently tracked issues: (1) Bedrock .nbt exports occasionally substitute stained glass colors incorrectly due to a palette-mapping bug, fix targeted for next release. (2) Structures using the \"underwater\" style preset...",
+              "via_reference": true
+            }
+          ],
+          "retrieval_confidence": 0.0328,
+          "verified": false,
+          "usage": {
+            "prompt_tokens": 784,
+            "completion_tokens": 10,
+            "total_tokens": 794,
+            "calls": 1
+          }
+        }
+      }
+    ]
+  }
+}

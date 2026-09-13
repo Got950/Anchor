@@ -28,21 +28,32 @@ def _startup() -> None:
 @app.get("/health")
 def health() -> dict:
     idx = ingest.get_index()
-    # llm is reported because every LLM call degrades to a heuristic fallback rather than
-    # erroring: without this, a keyless server looks identical to a configured one.
-    return {
+    # llm is a live probe (cached ~5 min), not a string-presence check: every LLM call
+    # degrades to a heuristic fallback rather than erroring, so a non-empty but invalid
+    # key would otherwise look healthy while the system is silently on fallbacks.
+    ok, err = llm.probe_live()
+    out: dict = {
         "status": "ok",
         "documents": len(idx.docs_by_id),
-        "llm": llm.available(),
-        "model": config.LLM_MODEL if llm.available() else None,
+        "llm": ok,
+        "model": config.LLM_MODEL if ok else None,
     }
+    if err:
+        out["llm_error"] = err
+    return out
 
 
 @app.post("/ask", response_model=AskResponse)
 def ask(req: AskRequest) -> dict:
-    return generator.answer_question(req.question)
+    llm.begin_usage()
+    out = generator.answer_question(req.question)
+    out["usage"] = llm.take_usage()
+    return out
 
 
 @app.post("/agent", response_model=AgentResponse, response_model_exclude_none=True)
 def agent(req: AgentRequest) -> dict:
-    return router.handle(req.message)
+    llm.begin_usage()
+    out = router.handle(req.message, req.previous_response_id)
+    out["usage"] = llm.take_usage()
+    return out

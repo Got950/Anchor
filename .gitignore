@@ -1,8 +1,15 @@
 __pycache__/
 *.pyc
+.pytest_cache/
+.venv/
+venv/
 .env
 node_modules/
 .next/
 *.log
+.DS_Store
+Thumbs.db
 backend/logs/*.jsonl
+backend/logs/*.out
+backend/logs/*.err
 backend/eval/ragas_per_sample.csv
