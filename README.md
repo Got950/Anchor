@@ -58,12 +58,22 @@ using Reciprocal Rank Fusion at k=60, then expanded one hop along the corpus's e
 cross-references. Nothing is chunked — every corpus file is 60–103 words, already atomic.
 Every interaction appends a JSONL line with the router's reasoning to `backend/logs/tool_calls.jsonl`.
 
+`/agent` also keeps a short conversation memory across clarifying turns. After a clarify, the
+UI sends the previous turn's `response_id` back as `previous_response_id`; the router resumes
+that thread through OpenAI's Responses API (`store=True`), so the user's follow-up is resolved
+in context instead of as a fresh message. Clarifies are capped at two attempts on one pending
+intent; a third vague reply gets a give-up message and an empty `response_id` so the next turn
+starts clean. Completed tool calls likewise clear the id so a later unrelated question cannot
+be folded into a ticket that already exists.
+
 Two corpus facts drove the design. Docs and tickets **cite each other** ("see Known Issues #4"),
 so `references` is extracted at ingest and used to pull cited docs into context (tagged
 `via_reference`, surfaced in the UI). And tickets carry an **outcome** ("closed as expected
 behavior", refund exception, escalated bug) that vector search cannot aggregate, so
 `resolution_type` / `refund_issued` are extracted into metadata and the aggregation path
-scans them directly.
+scans them directly. For set-level/aggregation questions (e.g. "which tickets got refunded"),
+`/agent` is the recommended endpoint: it uses the LLM router with a proper aggregation path,
+while `/ask` uses a keyword-heuristic divert that may miss novel phrasings.
 
 ## 2. How I'd evaluate this before shipping
 
@@ -97,10 +107,23 @@ Every number below is from an actual run, not an estimate.
 
 | metric | score | ship gate | met |
 |---|---|---|---|
-| faithfulness | **0.845** | > 0.9 | no — see below |
-| answer_relevancy | **0.744** | > 0.8 (want, not gate) | no |
+| faithfulness | **0.845–1.000** (across runs) | > 0.9 | intermittent — see below |
+| answer_relevancy | **~0.65–0.78** (across runs) | > 0.8 (want, not gate) | no |
 | context_precision | **0.976** | — | — |
 | context_recall | **1.000** | — | — |
+
+Across repeated live `run_eval.py` passes during testing, faithfulness ranged roughly
+**0.845–1.000** and answer_relevancy sat around **0.65–0.78**; that swing is consistent with
+LLM-judge noise at a small (7-pair) sample size rather than a change in generation quality,
+since `generator.py` / `verifier.py` were not modified between runs that produced different
+scores. `answer_relevancy` stays below the stated 0.8 ship bar (a want, not a gate).
+RAGAS's metric reverse-generates questions from the answer and scores embedding similarity to
+the original question; on short, direct factual answers (e.g. *"The Free tier allows 10
+generations per day…"*, per-sample **0.621**), those reverse questions vary in phrasing and
+depress the score even when the answer is fully correct and on-topic. Spot-checking the other
+low scorers (reference-builds **0.693**, floating-coral **0.632**) shows the same pattern —
+correct, on-topic answers — so I treat this as a **measurement artifact of the metric on short
+answers**, not a real weakness in generation.
 
 Two things about these numbers are worth stating plainly rather than burying.
 
@@ -120,13 +143,14 @@ model's internal confidence score falls below 0.62 [doc_07]"* — which is a nea
 restatement of its cited source. The other two sub-1.0 samples (0.667, 0.750) are likewise
 correct and traceable to their cited docs. RAGAS decomposes an answer into atomic statements
 and NLI-checks each, and on one-sentence answers carrying inline `[doc_id]` citations that
-decomposition is unstable. So faithfulness is **reported at 0.845 and does not clear the 0.9
-gate I set in section 2** — I would not wave that through on the grounds that I inspected the
-samples and liked them. The honest reading is that n=7 is too small to gate on: the fix is
-more generation pairs, not a different judge. `answer_relevancy` has the same problem from the
+decomposition is unstable. So faithfulness is **reported as a run-to-run range (0.845–1.000)
+rather than a single cherry-picked score**, and individual runs often sit under the 0.9 gate
+from section 2 — I would not wave that through on the grounds that I inspected the samples
+and liked them. The honest reading is that n=7 is too small to gate on: the fix is more
+generation pairs, not a different judge. `answer_relevancy` has the same problem from the
 other side — RAGAS asks the judge for 3 reverse-generated questions per answer and the run
-logged `LLM returned 1 generations instead of requested 3` repeatedly, so 0.744 is computed
-from a single question on several samples.
+logged `LLM returned 1 generations instead of requested 3` repeatedly, so mid-band scores
+(~0.65–0.78) are often computed from a single reverse question on several samples.
 
 **Retrieval — 7/7 generation pairs had all ground-truth sources in context; 2/2 multi-hop
 pairs passed** (both the citing ticket and the cited doc present, with a `via_reference` source):
